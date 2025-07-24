@@ -9,3 +9,4 @@ matplotlib
 pyyaml
 streamlit-authenticator==0.2.3
 bcrypt
+plotly
