@@ -239,38 +239,38 @@ if auth_status:
         st.markdown(f'Mean Time to Failure (MTTF) is: {round(est_life, 2)} hours')
 
         def interpret_weibull_stats(beta, char_life, est_life, B10_life, usage):
-        inferences = []
+            inferences = []
 
-        # Beta Interpretation
-        if beta > 1:
-            inferences.append("🔺 Increasing failure rate over time — typical of aging or wear-out mechanisms.")
-        elif beta < 1:
-            inferences.append("🔻 Decreasing failure rate — possible early-life failures or infant mortality.")
-        else:
-            inferences.append("➖ Constant failure rate — suggests random failures or ideal scenario.")
+            # Beta Interpretation
+            if beta > 1:
+                inferences.append("🔺 Increasing failure rate over time — typical of aging or wear-out mechanisms.")
+            elif beta < 1:
+                inferences.append("🔻 Decreasing failure rate — possible early-life failures or infant mortality.")
+            else:
+                inferences.append("➖ Constant failure rate — suggests random failures or ideal scenario.")
 
-        # Characteristic Life & MTTF
-        inferences.append(f"📌 Characteristic Life (η): {round(char_life, 2)} hrs — 63.2% of equipment fails by this point.")
-        inferences.append(f"📌 Mean Time to Failure (MTTF): {round(est_life, 2)} hrs — average operational life across machines.")
+            # Characteristic Life & MTTF
+            inferences.append(f"📌 Characteristic Life (η): {round(char_life, 2)} hrs — 63.2% of equipment fails by this point.")
+            inferences.append(f"📌 Mean Time to Failure (MTTF): {round(est_life, 2)} hrs — average operational life across machines.")
 
-        # B10 Life & Usage
-        inferences.append(f"📉 B10 Life: {round(B10_life, 2)} hrs — 10% failure threshold.")
-        inferences.append(f"⏳ Estimated usage before failure (at {int(cycles_monthly)} hrs/month): {round(usage, 2)} months.")
+            # B10 Life & Usage
+            inferences.append(f"📉 B10 Life: {round(B10_life, 2)} hrs — 10% failure threshold.")
+            inferences.append(f"⏳ Estimated usage before failure (at {int(cycles_monthly)} hrs/month): {round(usage, 2)} months.")
 
-        if usage < 12.0:
-            inferences.append("⚠️ Equipment does not meet a 1-year reliability benchmark. Review warranty or improve design.")
-        else:
-            inferences.append("✅ Equipment passes a 1-year reliability test under current usage conditions.")
+            if usage < 12.0:
+                inferences.append("⚠️ Equipment does not meet a 1-year reliability benchmark. Review warranty or improve design.")
+            else:
+                inferences.append("✅ Equipment passes a 1-year reliability test under current usage conditions.")
 
-        return inferences
+            return inferences
     
-        # Generate and display live Weibull inferences
-        inferences = interpret_weibull_stats(beta, char_life, est_life, B10_life, usage)
+            # Generate and display live Weibull inferences
+            inferences = interpret_weibull_stats(beta, char_life, est_life, B10_life, usage)
 
-        st.subheader("📊 Dynamic Inference Summary")
-        for item in inferences:
-            st.markdown(f"- {item}")
-        
+            st.subheader("📊 Dynamic Inference Summary")
+            for item in inferences:
+                st.markdown(f"- {item}")
+            
     else:
         st.info('Awaiting for csv file to be uploaded.')      
     
