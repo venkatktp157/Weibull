@@ -172,12 +172,20 @@ if auth_status:
             inferences = []
 
             # Beta Interpretation
+                # Probability Density Failure insights
+                # Probability Density Failure Curve analysis
             if beta > 1:
-                inferences.append("🔺 Increasing failure rate over time — typical of aging or wear-out mechanisms.")
+                inferences.append("📈 The PDF curve shows a pronounced peak — failures are concentrated around the characteristic life, indicating aging or wear-out mechanisms.")
             elif beta < 1:
-                inferences.append("🔻 Decreasing failure rate — possible early-life failures or infant mortality.")
+                inferences.append("🔍 The PDF curve would be left-skewed — high early-life failures, possibly due to poor quality or setup issues.")
             else:
-                inferences.append("➖ Constant failure rate — suggests random failures or ideal scenario.")
+                inferences.append("⚖️ The PDF curve tends to flatten — failures are randomly distributed, suggesting no dominant wear-out phase.")
+
+            if char_life:
+                peak_failure_hour = round(char_life, 0)
+                inferences.append(f"📌 Peak failure probability is around {peak_failure_hour} hours — consider proactive interventions before this window.")
+
+            inferences.append("🛠️ Use this PDF insight to optimize spare part stocking, inspections, and warranty benchmarks.")
 
             # Characteristic Life & MTTF
             inferences.append(f"📌 Characteristic Life (η): {round(char_life, 2)} hrs — 63.2% of equipment fails by this point.")
