@@ -166,7 +166,7 @@ if auth_status:
         if usage < 12.0:        
             st.markdown('Based on warranty terms, quality of spares to be checked and/or manufacturer must improve design to improve reliability')
         else:
-            st.markdown('Based on current usage, equipment is able to run troublefree for a year')
+            st.markdown('Based on current usage, equipment is able to run troublefree for at least one year')
         #------------------------------------------------------------------------- 
         
         # Create the Reliability plot
