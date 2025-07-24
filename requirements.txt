@@ -1,0 +1,11 @@
+
+pandas
+numpy
+statsmodels
+openpyxl
+streamlit 
+scipy
+matplotlib
+pyyaml
+streamlit-authenticator==0.2.3
+bcrypt
